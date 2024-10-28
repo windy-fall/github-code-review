@@ -1,0 +1,390 @@
+.birthday {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  min-width: 100vw;
+
+  :global {
+
+    .birthday__stage {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: none;
+      width: 580px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      h1 {
+        color: #e77572;
+        margin: 0;
+        text-align: center;
+      }
+
+      p {
+        // font-family: 'georgia';
+        font-size: 12px;
+        color: #b9918e;
+        line-height: 18px;
+        margin: 10px 0 0 0;
+      }
+    }
+
+    @media only screen and (max-width: 1080px) {
+      .birthday__stage {
+        width: 90%;
+      }
+    }
+
+    .stage1 {
+      img :local {
+        position: relative;
+        top: 0;
+        transform: scale(0);
+        animation: bounce .6s 1s forwards, moveup .6s 2s forwards;
+      }
+      .start :local {
+        margin-top: 30px;
+        animation: in 0.8s 2.9s forwards;
+        position: relative;
+        top: -20px;
+        opacity: 0;
+      }
+    }
+
+    .stage2 {
+
+      .mix {
+        margin: 80px 0px 10px 0px;
+        position: relative;
+
+        &__spoon {
+          position: absolute;
+          top: -37px;
+          left: 50%;
+          transform: rotate(0deg) translateX(-35px) translateY(3px) rotate(0deg) scale(1);
+
+          img.mixing :local{
+            animation: mix 1s 0s linear infinite;
+          }
+        }
+      }
+
+      .start {
+        margin-top: 30px;
+        position: relative;
+        top: -20px;
+      }
+    }
+
+    .stage3 {
+
+      .oven {
+        margin: 40px 0px -10px 0px;
+        position: relative;
+      }
+      .over-real {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 200px;
+      }
+    }
+
+    .stage4 {
+      .season-paste {
+        display: flex;
+        margin-top: 40px;
+        .paste {
+          & + .paste {
+            margin-left: 40px;
+          }
+          &.inactive {
+            pointer-events: none;
+            opacity: 0.6;
+          }
+          .intros {
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            h3 {
+              text-align: left;
+              color: #a25a58;
+              font-size: 20px;
+            }
+            h5 {
+              color: #e77572;
+              font-size: 20px;
+            }
+          }
+
+          .options {
+            display: flex;
+            .option {
+              & + .option {
+                margin-left: 14px;
+              }
+              &__color {
+                cursor: pointer;
+                width: 50px;
+                height: 50px;
+                border: 3px solid rgba(0, 0, 0, 0.07);
+                border-radius: 8px;
+                margin-bottom: 5px;
+                transition: all 0.12s;
+                &:hover {
+                  border: 3px solid white;
+                }
+              }
+              &__name {
+                text-align: center;
+                color: #e77572;
+              }
+            }
+          }
+        }
+      }
+
+      .cake {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: -10px;
+        transition: all .5s .5s;
+        &.finished {
+          margin-top: -420px;
+        }
+
+        .candle {
+          position: relative;
+          height: 44px;
+          transform: translateY(10px);
+          opacity: 0;
+          transition: all .5s 1s;
+          &.finished {
+            opacity: 1;
+          }
+          .frame :local {
+            position: absolute;
+            background: linear-gradient(to bottom, #FFF6D9, #FBC36C);
+            width: 8px;
+            height: 25px;
+            border-top-left-radius: 10px 35px;
+            border-top-right-radius: 10px 35px;
+            border-bottom-right-radius: 10px 10px;
+            border-bottom-left-radius: 10px 10px;
+            top: -10px;
+            left: 1px;
+            margin: auto;
+            box-shadow: 0 0 17px 7px rgba(251, 246, 190, 0.71);
+            transform-origin: bottom;
+            animation: flicker 1s ease-in-out alternate infinite;
+          }
+        }
+
+        .base {
+          height: 40px;
+          margin: 0 auto;
+          border-top-left-radius: 6px;
+          border-top-right-radius: 6px;
+          margin-bottom: -10px;
+          position: relative;
+          background-image: -webkit-repeating-linear-gradient(-45deg, transparent, transparent 5px, rgba(255, 255, 255, .2) 5px, rgba(255, 255, 255, .2) 10px);
+          display: flex;
+          justify-content: space-evenly;
+          div {
+            width: 10px;
+            height: 10px;
+            border-radius: 100px;
+            z-index: 4;
+            transform: translateY(-5px);
+          }
+        }
+
+        .filling {
+          height: 10px;
+          border-top-left-radius: 6px;
+          border-top-right-radius: 6px;
+          position: relative;
+          z-index: 1;
+          top: 9px;
+
+          div {
+            display: block;
+            width: 12.5%;
+            float: left;
+            height: 16px;
+            border-radius: 100%;
+          }
+        }
+      }
+
+      .hoping {
+        opacity: 0;
+        margin-top: 40px;
+        text-align: center;
+        color: #b9918e;
+        font-size: 24px;
+        font-weight: bold;
+        transition: all 1.5s 2s;
+        &.finished {
+          opacity: 1;
+        }
+        p {
+          margin: 10px 0;
+          font-size: 12px;
+        }
+      }
+    }
+
+    @media only screen and (max-width: 1080px) {
+      .stage4 {
+        width: 90%;
+        .season-paste {
+          margin-top: 10px;
+          flex-direction: column;
+          align-items: center;
+          .paste + .paste {
+            margin-left: 0;
+          }
+        }
+      }
+    }
+
+    .scale {
+      &-enter {
+        transform: translateY(-50%) scale(0);
+      }
+      &-enter-active {
+        transform: translateY(-50%)  scale(1);
+        transition: all .4s .6s;
+      }
+      &-enter-done {
+        transform: translateY(-50%)  scale(1);
+        transition: all .4s .6s;
+      }
+      &-exit {
+        transform: translateY(-50%) scale(1);
+      }
+      &-exit-active {
+        transform: translateY(-50%) scale(0);
+        transition: all .4s;
+      }
+      &-exit-done {
+        transform: translateY(-50%) scale(0);
+        transition: all .4s;
+      }
+    }
+    .fade {
+      &-enter {
+        opacity: 0;
+      }
+      &-enter-active {
+        opacity: 1;
+        transition: all .4s .6s;
+      }
+      &-enter-done {
+        opacity: 1;
+        transition: all .4s .6s;
+      }
+      &-exit {
+        opacity: 1;
+      }
+      &-exit-active {
+        opacity: 0;
+        transition: all .4s;
+      }
+      &-exit-done {
+        opacity: 0;
+        transition: all .4s;
+      }
+    }
+  }
+}
+
+
+
+@keyframes bounce {
+  0% {
+    transform: scale(0);
+  }
+  25% {
+    transform: scale(1.05);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+  75% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes moveup {
+  from {
+    top: 0;
+  }
+  to {
+    top: -30px;
+  }
+}
+
+@keyframes mix {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  25% {
+    transform: translate(14px, 2px);
+  }
+  50% {
+    transform: translate(28px, 0px);
+  }
+  75% {
+    transform: translate(14px, -2px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+@keyframes flicker {
+  0% {
+    transform: skewX(5deg);
+    box-shadow: 0 0 17px 10px rgba(251, 246, 190, 0.71);
+  }
+  25% {
+    transform: skewX(-5deg);
+    box-shadow: 0 0 17px 5px rgba(251, 246, 190, 0.71);
+  }
+  50% {
+    transform: skewX(10deg);
+    box-shadow: 0 0 17px 7px rgba(251, 246, 190, 0.71);
+  }
+  75% {
+    transform: skewX(-10deg);
+    box-shadow: 0 0 17px 5px rgba(251, 246, 190, 0.71);
+  }
+  100% {
+    transform: skewX(5deg);
+    box-shadow: 0 0 17px 10px rgba(251, 246, 190, 0.71);
+  }
+}

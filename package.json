@@ -1,0 +1,31 @@
+{
+  "name": "lesssugar-birthday",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "export": "next build && next export"
+  },
+  "dependencies": {
+    "@types/node": "20.4.9",
+    "@types/react": "18.2.20",
+    "@types/react-dom": "18.2.7",
+    "@types/react-transition-group": "^4.4.6",
+    "dayjs": "^1.11.9",
+    "eslint": "8.46.0",
+    "eslint-config-next": "13.4.13",
+    "next": "13.4.13",
+    "react": "18.2.0",
+    "react-countdown": "^2.3.5",
+    "react-dnd": "^16.0.1",
+    "react-dnd-html5-backend": "^16.0.1",
+    "react-dnd-touch-backend": "^16.0.1",
+    "react-dom": "18.2.0",
+    "react-transition-group": "^4.4.5",
+    "sass": "^1.65.1",
+    "typescript": "5.1.6"
+  }
+}
